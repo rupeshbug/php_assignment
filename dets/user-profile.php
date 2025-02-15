@@ -50,9 +50,7 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 						</a></li>
 					<li class="active">Profile</li>
 				</ol>
-			</div><!--/.row-->
-
-
+			</div>
 
 
 			<div class="row">
@@ -103,11 +101,11 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 						</form>
 						</div>
 					</div>
-				</div><!-- /.panel-->
-			</div><!-- /.col-->
+				</div>
+			</div>
 			<?php include_once('includes/footer.php'); ?>
-		</div><!-- /.row -->
-		</div><!--/.main-->
+		</div>
+		</div>
 
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
