@@ -48,8 +48,7 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 				<div class="col-lg-12">
 					<h1 class="page-header">Dashboard</h1>
 				</div>
-			</div><!--/.row-->
-
+			</div>
 
 
 
@@ -114,12 +113,12 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 						<div class="panel-body easypiechart-panel">
 							<h4>Last 7day's Expense</h4>
 							<div class="easypiechart" id="easypiechart-teal" data-percent="<?php echo $sum_weekly_expense; ?>"><span class="percent"><?php if ($sum_weekly_expense == "") {
-																																						echo "0";
-																																					} else {
-																																						echo $sum_weekly_expense;
-																																					}
+																																							echo "0";
+																																						} else {
+																																							echo $sum_weekly_expense;
+																																						}
 
-																																					?></span></div>
+																																						?></span></div>
 						</div>
 					</div>
 				</div>
@@ -137,12 +136,12 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 						<div class="panel-body easypiechart-panel">
 							<h4>Last 30day's Expenses</h4>
 							<div class="easypiechart" id="easypiechart-red" data-percent="<?php echo $sum_monthly_expense; ?>"><span class="percent"><?php if ($sum_monthly_expense == "") {
-																																						echo "0";
-																																					} else {
-																																						echo $sum_monthly_expense;
-																																					}
+																																							echo "0";
+																																						} else {
+																																							echo $sum_monthly_expense;
+																																						}
 
-																																					?></span></div>
+																																						?></span></div>
 						</div>
 					</div>
 				</div>
@@ -205,7 +204,6 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 
 			</div>
 
-			<!--/.row-->
 		</div> <!--/.main-->
 		<?php include_once('includes/footer.php'); ?>
 		<script src="js/jquery-1.11.1.min.js"></script>
