@@ -1,4 +1,4 @@
-How to run the Daily Expense Tracking System  Project
+## How to run the Daily Expense Tracking System  Project
 1. Download the  zip file
 2. Extract the file and copy dets folder
 3.Paste inside root directory(for xampp xampp/htdocs, for wamp wamp/www, for lamp var/www/html)
