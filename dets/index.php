@@ -28,7 +28,7 @@ if (isset($_POST['login'])) {
 	<link href="css/styles.css" rel="stylesheet">
 
 	<style>
-		/* Prevent horizontal scrollbar */
+		/* Prevent scrollbar */
 		body,
 		html {
 			overflow-x: hidden;
@@ -68,8 +68,8 @@ if (isset($_POST['login'])) {
 					</form>
 				</div>
 			</div>
-		</div><!-- /.col-->
-	</div><!-- /.row -->
+		</div>
+	</div>
 
 
 	<script src="js/jquery-1.11.1.min.js"></script>
