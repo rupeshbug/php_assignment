@@ -39,8 +39,6 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 		</div><!--/.row-->
 
 
-
-
 		<div class="row">
 			<div class="col-lg-12">
 
