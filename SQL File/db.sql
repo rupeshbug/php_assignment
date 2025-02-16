@@ -28,7 +28,6 @@ INSERT INTO `tblexpense` (`ID`, `UserId`, `ExpenseDate`, `ExpenseItem`, `Expense
 (9, 3, '2024-06-20', 'Netflix Subscription', '999', '2024-07-12 17:05:10'),
 (10, 3, '2024-07-16', 'Eggs, Cheese, Butter', '180', '2024-07-12 17:40:30');
 
--- --------------------------------------------------------
 
 --
 -- Table structure for table `tbluser`
