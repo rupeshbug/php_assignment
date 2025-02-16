@@ -2,23 +2,10 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if (strlen($_SESSION['detsuid'] == 0)) {
+
+if (strlen($_SESSION['detsuid']) == 0) {
 	header('location:logout.php');
 } else {
-
-	if (isset($_POST['submit'])) {
-		$userid = $_SESSION['detsuid'];
-		$dateexpense = $_POST['dateexpense'];
-		$item = $_POST['item'];
-		$costitem = $_POST['costitem'];
-		$query = mysqli_query($con, "insert into tblexpense(UserId,ExpenseDate,ExpenseItem,ExpenseCost) value('$userid','$dateexpense','$item','$costitem')");
-		if ($query) {
-			echo "<script>alert('Expense has been added');</script>";
-			echo "<script>window.location.href='manage-expense.php'</script>";
-		} else {
-			echo "<script>alert('Something went wrong. Please try again');</script>";
-		}
-	}
 ?>
 	<!DOCTYPE html>
 	<html>
@@ -29,15 +16,8 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 		<title>Daily Expense Tracker || Add Expense</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/font-awesome.min.css" rel="stylesheet">
-		<link href="css/datepicker3.css" rel="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
-
-		<!--Custom Font-->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-		<!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
 	</head>
 
 	<body>
@@ -47,70 +27,69 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 		<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 			<div class="row">
 				<ol class="breadcrumb">
-					<li><a href="#">
-							<em class="fa fa-home"></em>
-						</a></li>
+					<li><a href="#"><em class="fa fa-home"></em></a></li>
 					<li class="active">Expense</li>
 				</ol>
-			</div><!--/.row-->
-
-
-
+			</div>
 
 			<div class="row">
 				<div class="col-lg-12">
-
-
-
 					<div class="panel panel-default">
 						<div class="panel-heading">Expense</div>
 						<div class="panel-body">
-							<p style="font-size:16px; color:red" align="center"> <?php if ($msg) {
-																						echo $msg;
-																					}  ?> </p>
+							<p id="responseMsg" style="font-size:16px; color:red" align="center"></p>
 							<div class="col-md-12">
-
-								<form role="form" method="post" action="">
+								<form id="expenseForm">
 									<div class="form-group">
 										<label>Date of Expense</label>
-										<input class="form-control" type="date" value="" name="dateexpense" required="true">
+										<input class="form-control" type="date" name="dateexpense" required>
 									</div>
 									<div class="form-group">
 										<label>Item</label>
-										<input type="text" class="form-control" name="item" value="" required="true">
+										<input type="text" class="form-control" name="item" required>
 									</div>
-
 									<div class="form-group">
 										<label>Cost of Item</label>
-										<input class="form-control" type="text" value="" required="true" name="costitem">
+										<input class="form-control" type="text" name="costitem" required>
 									</div>
-
 									<div class="form-group has-success">
-										<button type="submit" class="btn btn-primary" name="submit">Add</button>
+										<button type="submit" class="btn btn-primary">Add</button>
 									</div>
-
-
+								</form>
 							</div>
-
-							</form>
 						</div>
 					</div>
-				</div><!-- /.panel-->
-			</div><!-- /.col-->
-			<?php include_once('includes/footer.php'); ?>
-		</div><!-- /.row -->
-		</div><!--/.main-->
+				</div>
+				<?php include_once('includes/footer.php'); ?>
+			</div>
+		</div>
 
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/chart.min.js"></script>
-		<script src="js/chart-data.js"></script>
-		<script src="js/easypiechart.js"></script>
-		<script src="js/easypiechart-data.js"></script>
-		<script src="js/bootstrap-datepicker.js"></script>
-		<script src="js/custom.js"></script>
-
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$("#expenseForm").on("submit", function(e) {
+					e.preventDefault();
+					$.ajax({
+						url: "./process-expense.php",
+						type: "POST",
+						data: $(this).serialize(),
+						dataType: "json",
+						success: function(response) {
+							if (response.status === "success") {
+								$("#responseMsg").css("color", "green").text(response.message);
+								$("#expenseForm")[0].reset();
+							} else {
+								$("#responseMsg").css("color", "red").text(response.message);
+							}
+						},
+						error: function() {
+							$("#responseMsg").css("color", "red").text("An error occurred. Please try again.");
+						}
+					});
+				});
+			});
+		</script>
 	</body>
 
 	</html>
-<?php }  ?>
+<?php } ?>
