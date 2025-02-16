@@ -13,7 +13,7 @@ CREATE TABLE `tblexpense` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tblexpense`
+-- Dumping data table `tblexpense`
 --
 
 INSERT INTO `tblexpense` (`ID`, `UserId`, `ExpenseDate`, `ExpenseItem`, `ExpenseCost`, `NoteDate`) VALUES
