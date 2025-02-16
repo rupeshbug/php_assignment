@@ -59,8 +59,8 @@ if (isset($_POST['submit'])) {
 					</form>
 				</div>
 			</div>
-		</div><!-- /.col-->
-	</div><!-- /.row -->
+		</div>
+	</div>
 
 
 	<script src="js/jquery-1.11.1.min.js"></script>
