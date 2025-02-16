@@ -43,45 +43,25 @@ CREATE TABLE `tbluser` (
   `RegDate` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `tbluser`
---
 
 INSERT INTO `tbluser` (`ID`, `FullName`, `Email`, `MobileNumber`, `Password`, `RegDate`) VALUES
 (1, 'Rahul', 'rahul@test.com', 1414256320, 'f925916e2754e5e03f75dd58a5733251', '2024-08-05 06:37:42'),
 (2, 'John Doe', 'johndoe12@gmail.com', 1231231230, 'f925916e2754e5e03f75dd58a5733251', '2024-08-16 04:50:45'),
 (3, 'Test User', 'testuser@gmail.com', 1233211230, 'f925916e2754e5e03f75dd58a5733251', '2024-08-16 05:17:22');
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `tblexpense`
---
 ALTER TABLE `tblexpense`
   ADD PRIMARY KEY (`ID`);
 
---
--- Indexes for table `tbluser`
---
+
 ALTER TABLE `tbluser`
   ADD PRIMARY KEY (`ID`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `tblexpense`
---
 ALTER TABLE `tblexpense`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
---
--- AUTO_INCREMENT for table `tbluser`
---
+
 ALTER TABLE `tbluser`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
-
