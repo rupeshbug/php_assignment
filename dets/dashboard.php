@@ -42,7 +42,7 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 						</a></li>
 					<li class="active">Dashboard</li>
 				</ol>
-			</div><!--/.row-->
+			</div>
 
 			<div class="row">
 				<div class="col-lg-12">
@@ -146,7 +146,7 @@ if (strlen($_SESSION['detsuid'] == 0)) {
 					</div>
 				</div>
 
-			</div><!--/.row-->
+			</div>
 			<div class="row">
 				<div class="col-xs-6 col-md-3">
 					<div class="panel panel-default">
